@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -16,10 +18,10 @@ import java.util.Set;
 public class Reservation       {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idFoyer;
-    private String nomFoyer ;
-    private Long capaciteFoyer ;
-    @ManyToMany
-    private Set<Etudiant> Etudiant;
+    private Long idReservation;
+    private  Date anneUniversitaire;
+    private Boolean estValid;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Etudiant> EtudiantList;
 
 }
